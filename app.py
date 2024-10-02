@@ -11,8 +11,15 @@ def generate_data():
 def main():
     st.title('Simple Data Visualization App')
 
-    # Generate data
-    df = generate_data()
+    # Add a button to generate new data
+    if 'data' not in st.session_state:
+        st.session_state.data = generate_data()
+
+    if st.button('Generate New Data'):
+        st.session_state.data = generate_data()
+
+    # Use the generated data
+    df = st.session_state.data
 
     # Display raw data
     st.subheader('Raw Data')
