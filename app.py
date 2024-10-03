@@ -9,7 +9,7 @@ def generate_data():
     return pd.DataFrame({'Date': dates, 'Value': values})
 
 def main():
-    st.title('Simple Data Visualization App')
+    st.title('Random Walk Generator')
 
     # Add a button to generate new data
     if 'data' not in st.session_state:
@@ -20,10 +20,6 @@ def main():
 
     # Use the generated data
     df = st.session_state.data
-
-    # Display raw data
-    st.subheader('Raw Data')
-    st.write(df)
 
     # Create a line plot
     st.subheader('Line Plot')
@@ -42,6 +38,11 @@ def main():
     ax.set_ylabel('Frequency')
     ax.set_title('Distribution of Values')
     st.pyplot(fig)
+    
+     # Display raw data
+    st.subheader('Raw Data')
+    st.write(df)
+
 
 if __name__ == '__main__':
     main()
